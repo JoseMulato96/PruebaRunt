@@ -1,0 +1,93 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Consulta profesores</h4>
+            <!-- <p class="card-category">Flujo Asignaturas,estudiantes,profesores</p> -->
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field>
+                    <mat-select name="profesores" [(ngModel)]="selectedProfesor" placeholder="Profesores">
+                      <mat-option *ngFor="let profesor of dProfesores" [value]="profesor.idProfesor">
+                        {{profesor.nombre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="writeJsonDatos()">Consulta</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title mt-0"> Tabla de asignaturas</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover" *ngIf="showTable">
+                <thead class="">
+                  <th>
+                    Codigo Asignatura
+                  </th>
+                  <th>
+                    Nombre Asignatura
+                  </th>                
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of dTabla;">
+                    <td>
+                      {{item.idAsignatura}}
+                    </td>
+                    <td>
+                      {{item.nombre}}
+                    </td>                   
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title mt-0"> Tabla de Estudiantes</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover" *ngIf="showTable">
+                <thead class="">
+                  <th>
+                    Nombre Estudiante
+                  </th>                  
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of dTabla1;">                    
+                    <td>
+                      {{item.nombre}}
+                    </td>                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

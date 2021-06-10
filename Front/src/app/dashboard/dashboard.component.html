@@ -1,0 +1,33 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Login Colegio</h4>                        
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">                                                       
+                            <mat-form-field floatLabel="never" class="form-element">
+                                <input type="text" matInput placeholder="Username" formControlName="username">
+                                <mat-error *ngIf="formGroup.controls['username'].invalid">
+                                  {{getError('user')}}
+                                </mat-error>
+                              </mat-form-field>
+                          
+                              <mat-form-field floatLabel="never" class="form-element">
+                                <input type="password" matInput placeholder="Password" formControlName="password">
+                                <mat-error *ngIf="!formGroup.controls['password'].valid">
+                                  {{getError('pass')}}
+                                </mat-error>
+                              </mat-form-field>                                                   
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Iniciar Sesion</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+  </div>
+  
